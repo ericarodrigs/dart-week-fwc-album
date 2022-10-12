@@ -1,6 +1,4 @@
-import 'package:dart_week_worldcup_album/app/core/styles/button_styles.dart';
-import 'package:dart_week_worldcup_album/app/core/styles/colors_app.dart';
-import 'package:dart_week_worldcup_album/app/core/styles/text_styles.dart';
+import 'package:dart_week_worldcup_album/app/core/ui/styles/button_styles.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatelessWidget {

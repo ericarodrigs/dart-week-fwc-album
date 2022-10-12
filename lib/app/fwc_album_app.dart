@@ -1,4 +1,4 @@
-import 'package:dart_week_worldcup_album/app/core/theme/theme_config.dart';
+import 'package:dart_week_worldcup_album/app/core/ui/theme/theme_config.dart';
 import 'package:dart_week_worldcup_album/app/pages/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 
