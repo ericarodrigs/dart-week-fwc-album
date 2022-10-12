@@ -1,9 +1,16 @@
+import 'package:dart_week_worldcup_album/app/core/ui/helpers/loader.dart';
+import 'package:dart_week_worldcup_album/app/core/ui/helpers/messages.dart';
 import 'package:dart_week_worldcup_album/app/core/ui/styles/button_styles.dart';
 import 'package:flutter/material.dart';
 
-class SplashPage extends StatelessWidget {
-  const SplashPage({Key? key}) : super(key: key);
+class SplashPage extends StatefulWidget {
+  const SplashPage({super.key});
 
+  @override
+  State<SplashPage> createState() => _SplashPageState();
+}
+
+class _SplashPageState extends State<SplashPage> with Loader, Messages {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
