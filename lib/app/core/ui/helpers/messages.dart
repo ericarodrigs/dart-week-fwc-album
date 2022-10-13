@@ -28,6 +28,7 @@ mixin Messages<T extends StatefulWidget> on State<T> {
       context,
       CustomSnackBar.info(
         message: message,
+        backgroundColor: Colors.green,
       ),
     );
   }
