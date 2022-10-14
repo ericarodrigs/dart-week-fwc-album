@@ -1,6 +1,7 @@
 import 'package:dart_week_worldcup_album/app/core/rest/custom_dio.dart';
 import 'package:dart_week_worldcup_album/app/core/ui/theme/theme_config.dart';
 import 'package:dart_week_worldcup_album/app/pages/auth/login/login_page.dart';
+import 'package:dart_week_worldcup_album/app/pages/auth/login/login_route.dart';
 import 'package:dart_week_worldcup_album/app/pages/auth/register/register_page.dart';
 import 'package:dart_week_worldcup_album/app/pages/auth/register/register_route.dart';
 import 'package:dart_week_worldcup_album/app/pages/home/home_page.dart';
@@ -27,7 +28,7 @@ class FwcAlbumApp extends StatelessWidget {
         routes: {
           '/': (_) => SplashRoute(),
           '/home': (_) => const HomePage(),
-          '/auth/login': (_) => const LoginPage(),
+          '/auth/login': (_) => const LoginRoute(),
           '/auth/register': (_) => RegisterRoute(),
         },
       ),
