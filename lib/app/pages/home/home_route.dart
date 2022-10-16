@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
 
 class HomeRoute extends FlutterGetItPageRoute {
+  const HomeRoute({super.key});
 
   @override
   List<Bind<Object>> get bindings => [
