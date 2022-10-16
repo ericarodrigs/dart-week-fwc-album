@@ -1,3 +1,6 @@
+import 'package:dart_week_worldcup_album/app/pages/my_stickers/widgets/sticker_group.dart';
+import 'package:dart_week_worldcup_album/app/pages/my_stickers/widgets/sticker_group_filter.dart';
+import 'package:dart_week_worldcup_album/app/pages/my_stickers/widgets/sticker_status_filter.dart';
 import 'package:flutter/material.dart';
 
 class MyStickersPage extends StatelessWidget {
@@ -9,7 +12,22 @@ class MyStickersPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Minhas Figurinhas'),
       ),
-      body: Container(),
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Column(
+              children: const [
+                StickerStatusFilter(filterSelected: '',),
+                StickerGroupFilter(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate((context, index) => const StickerGroup(),
+            childCount: 1),
+          ),
+        ],
+      ),
     );
   }
 }
