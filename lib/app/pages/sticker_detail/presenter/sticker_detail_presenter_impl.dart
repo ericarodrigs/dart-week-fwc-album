@@ -32,7 +32,7 @@ class StickerDetailPresenterImpl implements StickerDetailPresenter {
     bool hasSticker = stickerUser != null;
 
     if(hasSticker) {
-      amount = stickerUser.duplicate + 1;
+      amount = stickerUser.duplicateStickers + 1;
     }
 
     _view.screenLoaded(hasSticker, countryCode, stickerNumber, countryName, amount);

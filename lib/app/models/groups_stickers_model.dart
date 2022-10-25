@@ -22,15 +22,17 @@ class GroupsStickersModel {
   });
 
   Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'country_code': countryCode,
-      'country_name': countryName,
-      'stickers_start': stickersStart,
-      'stickers_end': stickersEnd,
-      'stickers': stickers,
-      'flag': flag,
-    };
+    final result = <String, dynamic>{};
+
+    result.addAll({'id': id});
+    result.addAll({'country_code': countryCode});
+    result.addAll({'country_name': countryName});
+    result.addAll({'stickers_start': stickersStart});
+    result.addAll({'stickers_end': stickersEnd});
+    result.addAll({'stickers': stickers.map((x) => x.toMap()).toList()});
+    result.addAll({'flag': flag});
+
+    return result;
   }
 
   factory GroupsStickersModel.fromMap(Map<String, dynamic> map) {
@@ -41,7 +43,7 @@ class GroupsStickersModel {
       stickersStart: map['stickers_start']?.toInt() ?? 0,
       stickersEnd: map['stickers_end']?.toInt() ?? 0,
       stickers: List<UserStickerModel>.from(
-          map['stickers']),
+          map['stickers']?.map((x) => UserStickerModel.fromMap(x))),
       flag: map['flag'] ?? '',
     );
   }

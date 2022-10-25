@@ -74,7 +74,7 @@ class StickerGroup extends StatelessWidget {
                   return stickerWidget;
                 }
               } else if (statusFilter == 'repeated'){
-                if(sticker != null && sticker.duplicate > 0) {
+                if(sticker != null && sticker.duplicateStickers > 0) {
                   return stickerWidget;
                 }
               }
@@ -120,7 +120,7 @@ class Sticker extends StatelessWidget {
         child: Column(
           children: [
             Visibility(
-              visible: (sticker?.duplicate ?? 0) > 0,
+              visible: (sticker?.duplicateStickers ?? 0) > 0,
               maintainSize: true,
               maintainAnimation: true,
               maintainState: true,
@@ -128,7 +128,7 @@ class Sticker extends StatelessWidget {
                 alignment: Alignment.topRight,
                 padding: const EdgeInsets.all(2),
                 child: Text(
-                  sticker?.duplicate.toString() ?? '',
+                  sticker?.duplicateStickers.toString() ?? '',
                   style: context.textStyles.textSecondaryFontMedium
                       .copyWith(color: context.colors.yellow),
                 ),
