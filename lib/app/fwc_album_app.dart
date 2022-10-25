@@ -11,6 +11,7 @@ import 'package:dart_week_worldcup_album/app/pages/home/home_route.dart';
 import 'package:dart_week_worldcup_album/app/pages/my_stickers/my_stickers_page.dart';
 import 'package:dart_week_worldcup_album/app/pages/my_stickers/my_stickers_page_route.dart';
 import 'package:dart_week_worldcup_album/app/pages/splash/splash_route.dart';
+import 'package:dart_week_worldcup_album/app/pages/sticker_detail/sticker_detail_route.dart';
 import 'package:dart_week_worldcup_album/app/repository/auth/auth_repository.dart';
 import 'package:dart_week_worldcup_album/app/repository/auth/auth_repository_impl.dart';
 import 'package:flutter/material.dart';
@@ -41,6 +42,7 @@ class FwcAlbumApp extends StatelessWidget {
           '/auth/register': (_) => const RegisterRoute(),
           '/home': (_) => const HomeRoute(),
           '/my-stickers': (_) => const MyStickersPageRoute(),
+          '/sticker-detail': (_) => const StickerDetailRoute(),
         },
       ),
     );
