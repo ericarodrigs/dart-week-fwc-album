@@ -2,7 +2,9 @@ import 'package:dart_week_worldcup_album/app/core/ui/styles/colors_app.dart';
 import 'package:dart_week_worldcup_album/app/core/ui/styles/text_styles.dart';
 import 'package:dart_week_worldcup_album/app/models/groups_stickers_model.dart';
 import 'package:dart_week_worldcup_album/app/models/user_sticker_model.dart';
+import 'package:dart_week_worldcup_album/app/pages/my_stickers/presenter/my_stickers_presenter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_getit/flutter_getit.dart';
 
 class StickerGroup extends StatelessWidget {
   final GroupsStickersModel group;
@@ -103,13 +105,15 @@ class Sticker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        Navigator.of(context).pushNamed('/sticker-detail', arguments: {
+      onTap: () async {
+        final presenter = context.get<MyStickersPresenter>();
+        await Navigator.of(context).pushNamed('/sticker-detail', arguments: {
           'countryCode' : countryCode,
           'stickerNumber' : stickerNumber,
           'countryName' : countryName,
           'stickerUser' : sticker,
         });
+        presenter.refresh();
       },
       child: Container(
         color: sticker != null ? context.colors.primary : context.colors.grey,

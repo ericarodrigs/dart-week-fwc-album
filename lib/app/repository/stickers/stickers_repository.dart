@@ -4,6 +4,12 @@ import 'package:dart_week_worldcup_album/app/models/sticker_model.dart';
 
 abstract class StickersRepository {
   Future<List<GroupsStickersModel>> getMyAlbum();
-  Future<StickerModel?> findStickerByCode(String stickerCode, String stickerNumber);
+
+  Future<StickerModel?> findStickerByCode(
+      String stickerCode, String stickerNumber);
+
   Future<StickerModel> create(RegisterStickerModel registerStickerModel);
+
+  Future<void> registerUserSticker (int stickerId, int amount);
+  Future<void> updateUserSticker (int stickerId, int amount);
 }

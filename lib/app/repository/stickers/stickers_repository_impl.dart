@@ -39,7 +39,6 @@ class StickersRepositoryImpl implements StickersRepository {
       );
 
       return StickerModel.fromMap(result.data);
-
     } on DioError catch (e, s) {
       if (e.response?.statusCode == 404) {
         return null;
@@ -55,13 +54,44 @@ class StickersRepositoryImpl implements StickersRepository {
     try {
       final body = FormData.fromMap({
         ...registerStickerModel.toMap(),
-        'sticker_image_upload' : '',
+        'sticker_image_upload': '',
       });
       final result = await dio.auth().post('/api/sticker', data: body);
       return StickerModel.fromMap(result.data);
     } on DioError catch (e, s) {
       log('Erro ao cadastrar figurinha no album', error: e, stackTrace: s);
-      throw RepositoryException(message: 'Erro ao cadastrar figurinha no album');
+      throw RepositoryException(
+          message: 'Erro ao cadastrar figurinha no album');
+    }
+  }
+
+  @override
+  Future<void> registerUserSticker(int stickerId, int amount) async {
+    try {
+      await dio.auth().post('/api/user/sticker', data: {
+        'id_sticker': stickerId,
+        'amount': amount,
+      });
+    } on DioError catch (e, s) {
+      log('Erro ao adicionar figurinha no album do usuario',
+          error: e, stackTrace: s);
+      throw RepositoryException(
+          message: 'Erro ao adicionar figurinha no album do usuario');
+    }
+  }
+
+  @override
+  Future<void> updateUserSticker(int stickerId, int amount) async {
+    try {
+      await dio.auth().put('/api/user/sticker', data: {
+        'id_sticker': stickerId,
+        'amount': amount,
+      });
+    } on DioError catch (e, s) {
+      log('Erro ao adicionar figurinha no album do usuario',
+          error: e, stackTrace: s);
+      throw RepositoryException(
+          message: 'Erro ao adicionar figurinha no album do usuario');
     }
   }
 }
